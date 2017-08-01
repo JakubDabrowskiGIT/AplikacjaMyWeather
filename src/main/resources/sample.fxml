@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <Button fx:id="buttonShowWeather" layoutX="222.0" layoutY="307.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="157.0" text="Pokaż pogode" />
+      <TextField fx:id="textFieldTypeCity" layoutX="188.0" layoutY="253.0" prefHeight="25.0" prefWidth="226.0" text="Wpisz miasto" />
+      <Label fx:id="labelTemp" layoutX="188.0" layoutY="45.0" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: white;" text="Temperatura" />
+      <Label fx:id="labelHumidity" layoutX="188.0" layoutY="94.0" prefHeight="17.0" prefWidth="226.0" style="-fx-background-color: white;" text="Ciśnienie" />
+      <Label fx:id="labelClouds" layoutX="188.0" layoutY="172.0" prefHeight="17.0" prefWidth="226.0" style="-fx-background-color: white;" text="Zachmurzenie" />
+      <Label fx:id="labelPressure" layoutX="188.0" layoutY="138.0" prefHeight="17.0" prefWidth="226.0" style="-fx-background-color: white;" text="Wilgotność" />
+      <ProgressIndicator fx:id="progress" layoutX="230.0" layoutY="117.0" prefHeight="145.0" prefWidth="143.0" visible="false" />
+   </children>
+</AnchorPane>
