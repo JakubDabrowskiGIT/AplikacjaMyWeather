@@ -5,6 +5,7 @@ import models.Config;
 import models.WeatherInfo;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,13 +56,18 @@ public class WeatherService {
             humidity=0;
             clouds=0;
             pressure=0;
-            return;
         }
         else {
             JSONObject mainObject = rootObject.getJSONObject("main");
-            temp = mainObject.getDouble("temp") - 273.29;
-            humidity = mainObject.getInt("humidity");
-            pressure = mainObject.getInt("pressure");
+            DecimalFormat df = new DecimalFormat("#.##");
+            temp = mainObject.getDouble("temp");
+            temp = temp -273;
+            temp = Math.round(temp);
+          //  temp = temp/10;
+
+            System.out.println(temp);
+            humidity = mainObject.getInt("humidity")*10;
+            pressure = mainObject.getInt("pressure")/10;
             JSONObject cloudsObject = rootObject.getJSONObject("clouds");
             clouds = cloudsObject.getInt("all");
 
@@ -80,7 +86,7 @@ public class WeatherService {
         observerList.add(observer);
     }
 
-    public void notifyObservers() {
+    private void notifyObservers() {
         WeatherInfo weatherInfo = new WeatherInfo(temp, pressure, humidity, clouds);
         for (IWeatherObserver iWeatherObserver : observerList){
             iWeatherObserver.onWeatherUpdate(weatherInfo);

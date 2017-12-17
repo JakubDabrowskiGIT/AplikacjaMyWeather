@@ -45,7 +45,7 @@ public class Controller implements Initializable,IWeatherObserver {
     private WeatherService weatherService = WeatherService.getOurService();
 
 
-    public void weatherInformation() {
+    private void weatherInformation() {
         try {
             weatherService.makeCall(textFieldTypeCity.getText());
 
@@ -81,9 +81,9 @@ public class Controller implements Initializable,IWeatherObserver {
     }
 
     public void onWeatherUpdate(WeatherInfo info) {
-        labelTemp.setText("Temperatura: " + info.getTemp() + "C");
+        labelTemp.setText("Temperatura: " + info.getTemp() + " \u00b0C");
         labelHumidity.setText("Wilgotność: " + info.getHumidity() + "%");
-        labelPressure.setText("Ciśnienie: " + info.getPressure() + " Pa");
+        labelPressure.setText("Ciśnienie: " + info.getPressure() + " hPa");
         labelClouds.setText("Zachmurzenie: " + info.getClouds() + "%");
         progress.setVisible(false);
     }
